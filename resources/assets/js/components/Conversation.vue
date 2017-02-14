@@ -51,9 +51,9 @@ export default  {
   flex-flow: column
   margin: 0 auto
   overflow-y: scroll
-  border: 2px dashed $grey-lighter
   border-radius: 10px
   padding: 0px 5px
+  background-color: white
   .tag
     display: inline-block
     max-width: 350px

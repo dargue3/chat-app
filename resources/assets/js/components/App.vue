@@ -5,7 +5,7 @@
         <div class="container">
           <div class="nav-left">
             <a class="nav-item">
-              <span v-if="username"><strong>Hello, {{ username }}</strong></span>
+              <span class="username" v-if="username">Hello, {{ username }}</span>
             </a>
           </div>
           <div class="nav-right">
@@ -126,6 +126,14 @@ export default  {
 
 <style lang="sass">
 @import '~_variables'
+
+.hero
+  background-color: whitesmoke
+  .nav
+    background-color: #404040
+  .username
+    color: white
+    font-weight: bold
 
 .hero-body .container
   max-width: 550px
