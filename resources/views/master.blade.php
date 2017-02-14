@@ -8,7 +8,10 @@
   <link rel="stylesheet" href="/css/app.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
   
-  <title></title>
+  <title>Chat App</title>
+
+  <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
+  <link rel="icon" href="/favicon.png" type="image/x-icon">
 
   <meta name="csrf-token" content="{{ csrf_token() }}">
 
