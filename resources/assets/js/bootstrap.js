@@ -1,26 +1,32 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Axios from 'axios';
+import Echo from 'laravel-echo'
+import Moment from 'moment';
+import SmoothScroll from 'smoothscroll-polyfill';
+import Bus from './helpers/EventBus.js';
+import Helpers from './helpers/Helpers.js';
+import NProgress from 'nprogress';
+
+SmoothScroll.polyfill();
 
 window.Vue = Vue;
-window.axios = Axios;
+window.moment = Moment;
+window.Bus = Bus;
+window.Helpers = Helpers;
+
+NProgress.configure({easing: 'ease', speed: 200})
+window.NProgress = NProgress;
 
 Vue.use(VueRouter);
 
-
+window.axios = Axios;
 window.axios.defaults.headers.common = {
-	'X-Requested-With': 'XMLHttpRequest'
+  'X-Requested-With': 'XMLHttpRequest',
+  'X-CSRF-TOKEN': document.querySelector('[name="csrf-token"]').getAttribute('content'),
 };
 
-/**
- * Echo exposes an expressive API for subscribing to channels and listening
- * for events that are broadcast by Laravel. Echo and event broadcasting
- * allows your team to easily build robust real-time web applications.
- */
-
-// import Echo from "laravel-echo"
-
-// window.Echo = new Echo({
-//     broadcaster: 'pusher',
-//     key: 'your-pusher-key'
-// });
+window.Echo = new Echo({
+  broadcaster: 'pusher',
+  key: 'c04a67b0a399919b8481'
+});

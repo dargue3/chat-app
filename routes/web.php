@@ -11,6 +11,13 @@
 |
 */
 
+Route::get('/logout', function() {
+  Auth::logout();
+  return redirect('/login');
+});
+
+Auth::routes();
+
 // all non-api traffic gets routed to the homepage where vue-router takes over
 Route::any('/{any}', function () {
   return view('master');

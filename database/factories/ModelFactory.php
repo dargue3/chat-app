@@ -12,12 +12,15 @@
 */
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
-    static $password;
+    return ['username' => $faker->word];
+});
 
-    return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
-    ];
+$factory->define(App\Message::class, function (Faker\Generator $faker) {
+  $IDs = App\User::all(['username'])->pluck('username')->toArray();
+  $from = $IDs[array_rand($IDs)];
+
+  return [
+    'from' => $faker->word,
+    'message' => $faker->sentence
+  ];
 });
